@@ -1,0 +1,40 @@
+# Siri Bridge systemd service
+# Copy to /etc/systemd/system/siri-bridge.service
+#
+# Then run:
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable siri-bridge
+#   sudo systemctl start siri-bridge
+#
+# Check status:
+#   sudo systemctl status siri-bridge
+#
+# View logs:
+#   sudo journalctl -u siri-bridge -f
+
+[Unit]
+Description=Siri Bridge for OpenClaw
+Documentation=https://github.com/yourusername/openclaw-voice-commands
+After=network.target
+
+[Service]
+Type=simple
+User=root
+EnvironmentFile=/etc/siri-bridge.env
+ExecStart=/usr/bin/node /opt/openclaw-voice-commands/siri-bridge.js
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=append:/var/log/siri-bridge.log
+StandardError=append:/var/log/siri-bridge.log
+
+# Security hardening (optional but recommended)
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/log
+
+[Install]
+WantedBy=multi-user.target

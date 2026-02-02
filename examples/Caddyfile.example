@@ -1,0 +1,42 @@
+# Siri Bridge Caddy Configuration
+# Copy to /etc/caddy/Caddyfile and customize
+
+# Option A: With your own domain
+# Replace 'yourdomain.com' with your actual domain
+yourdomain.com {
+    reverse_proxy localhost:18790
+
+    # Security headers
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        -Server
+    }
+
+    # Request size limit
+    request_body {
+        max_size 10KB
+    }
+
+    # Optional: Logging
+    log {
+        output file /var/log/caddy/siri-bridge.log
+        format json
+    }
+}
+
+# Option B: Without a domain (using sslip.io)
+# Replace 192-168-1-100 with your server IP (use dashes instead of dots)
+# Example: If your IP is 203.0.113.50, use 203-0-113-50.sslip.io
+#
+# 192-168-1-100.sslip.io {
+#     reverse_proxy localhost:18790
+#
+#     header {
+#         Strict-Transport-Security "max-age=31536000; includeSubDomains"
+#         X-Content-Type-Options "nosniff"
+#         X-Frame-Options "DENY"
+#         -Server
+#     }
+# }
