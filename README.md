@@ -6,6 +6,10 @@ Connect Apple Siri to your OpenClaw/Clawdbot AI assistant.
 "Hey Siri, OpenClaw"  →  Your Server  →  AI Response  →  Siri speaks
 ```
 
+## Demo
+
+<video src="assets/demo.mp4" controls width="300"></video>
+
 ## Works Anywhere
 
 | Platform | Example |
