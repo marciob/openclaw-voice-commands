@@ -8,14 +8,9 @@ Connect Apple Siri to your OpenClaw/Clawdbot AI assistant.
 
 ## Demo
 
-![Demo preview](assets/demo-preview.gif)
+[![Demo preview](assets/demo-preview.gif)](https://x.com/heymakio/status/2018310425499025438)
 
-<details>
-<summary>Watch full demo</summary>
-
-<video src="assets/demo.mp4" controls width="300"></video>
-
-</details>
+[Watch full demo on X](https://x.com/heymakio/status/2018310425499025438)
 
 ## Works Anywhere
 
